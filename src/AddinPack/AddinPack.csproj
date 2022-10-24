@@ -11,9 +11,9 @@
     <Authors>Matthew D. Jordan</Authors>
     <Company>InventorCode</Company>
     <Product></Product>
-    <Description></Description>
-    <Copyright>2021</Copyright>
-    <Version>0.1.0-alpha1</Version>
+    <Description>A simple collection of classes to simplify creating Autodesk Inventor addins.</Description>
+    <Copyright>2022</Copyright>
+    <Version>0.2.0</Version>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageProjectUrl></PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -33,12 +33,12 @@
 
   <ItemGroup>
     <Reference Include="Autodesk.Inventor.Interop">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Inventor 2021\Bin\Public Assemblies\Autodesk.Inventor.Interop.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Inventor 2022\Bin\Public Assemblies\Autodesk.Inventor.Interop.dll</HintPath>
       <EmbedInteropTypes>false</EmbedInteropTypes>
       <Private>false</Private>
     </Reference>
     <Reference Include="stdole">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Inventor 2021\Bin\stdole.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Inventor 2022\Bin\stdole.dll</HintPath>
       <Private>false</Private>
       <EmbedInteropTypes>false</EmbedInteropTypes>
     </Reference>
