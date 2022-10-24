@@ -1,4 +1,6 @@
 
+using System;
+
 namespace InventorCode.AddinPack
 {
     /// <summary>
@@ -9,7 +11,7 @@ namespace InventorCode.AddinPack
     /// myForm.Show(New WindowWrapper(g_inventorApplication.MainFrameHWND))
 
     /// </summary>
-    public class WindowWraper : System.Windows.Forms.IWin32Window
+    public class WindowWrapper : System.Windows.Forms.IWin32Window
     {
         private IntPtr _hwnd;
 
@@ -18,7 +20,7 @@ namespace InventorCode.AddinPack
             _hwnd = handle;
         }
 
-        public IntPtr System.Windows.Forms.IWin32Window.Handle
+        IntPtr System.Windows.Forms.IWin32Window.Handle
             { get => _hwnd; }
     }
 }
