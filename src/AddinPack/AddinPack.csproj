@@ -13,7 +13,7 @@
     <Product></Product>
     <Description>A simple collection of classes to simplify creating Autodesk Inventor addins.</Description>
     <Copyright>2022</Copyright>
-    <Version>0.2.0</Version>
+    <Version>0.2.2</Version>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageProjectUrl></PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
