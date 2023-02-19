@@ -11,7 +11,7 @@ namespace InventorCode.AddinPack
     public abstract class CommandButtonTemplate : IUiTemplate
     {
         protected ButtonDefinition commandButtonDefinition;
-        protected Icon icon;
+        protected InventorUiIcon icon;
         protected Inventor.Application inventorApplication;
         UserInterfaceEvents uiEvents;
 
@@ -21,7 +21,7 @@ namespace InventorCode.AddinPack
             UIManager = _inventorApplication.UserInterfaceManager;
             this.clientId = _clientId;
 
-            CreateIcons();
+            CreateUiIcon();
             CreateButtonDefinition();
         }
 
@@ -61,18 +61,18 @@ namespace InventorCode.AddinPack
                     clientId,
                     descriptionText,
                     toolTipText,
-                    icon.SmallIcon,
-                    icon.LargeIcon,
+                    icon.Small,
+                    icon.Large,
                     buttonDisplay);
         }
 
-        private void CreateIcons()
+        private void CreateUiIcon()
         {
-            icon = new Icon(inventorApplication);
-            icon.SmallIconImage = SmallIconImage;
-            icon.SmallIconDarkImage = SmallIconImageDark;
-            icon.LargeIconImage = LargeIconImage;
-            icon.LargeIconDarkImage = LargeIconImageDark;
+            icon = new InventorUiIcon(inventorApplication,
+                                   small: SmallIconImage,
+                                   large: LargeIconImage,
+                                   smallDark: SmallIconImageDark,
+                                   largeDark: LargeIconImageDark);
         }
 
         private void customButtonDefinition_OnExecute(NameValueMap Context) => Execute();
@@ -165,19 +165,19 @@ namespace InventorCode.AddinPack
         /// <summary>
         /// The small icon image for the command button.
         /// </summary>
-        protected abstract System.Drawing.Bitmap SmallIconImage { get; set; }
+        protected abstract object SmallIconImage { get; set; }
         /// <summary>
         /// The small icon image for the command button when in dark mode.
         /// </summary>
-        protected abstract System.Drawing.Bitmap SmallIconImageDark { get; set; }
+        protected abstract object SmallIconImageDark { get; set; }
         /// <summary>
         /// The large icon image for the command button.
         /// </summary>
-        protected abstract System.Drawing.Bitmap LargeIconImage { get; set; }
+        protected abstract object LargeIconImage { get; set; }
         /// <summary>
         /// The large icon image for the command button when in dark mode.
         /// </summary>
-        protected abstract System.Drawing.Bitmap LargeIconImageDark { get; set; }
+        protected abstract object LargeIconImageDark { get; set; }
         /// <summary>
         /// The method to execute when Inventor builds the user interface. Place code that creates ribbon buttons, etc here.
         /// Refer to CommandButtonTemplate.CreateRibbonButton().
