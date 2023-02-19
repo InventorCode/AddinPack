@@ -36,10 +36,10 @@ namespace InventorCode.AddinPack
             switch(image)
             {
                 case System.Drawing.Icon icon:
-                    return PictureConverter.ConvertIconToIPictureDisp(icon);
+                    return PictureDispConverter.ToIPictureDisp(icon);
 
                 case System.Drawing.Bitmap bitmap:
-                    return PictureConverter.ImageToPictureDisp(bitmap);
+                    return PictureDispConverter.ToIPictureDisp(bitmap);
 
                 case stdole.IPictureDisp picture:
                     return picture;
