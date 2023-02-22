@@ -13,13 +13,18 @@ namespace InventorCode.AddinPack
         protected ButtonDefinition commandButtonDefinition;
         protected InventorUiIcon icon;
         protected Inventor.Application inventorApplication;
+        ApplicationEvents applicationEvents;
         UserInterfaceEvents uiEvents;
+        InventorTheme theme;
 
         public CommandButtonTemplate(Inventor.Application _inventorApplication, string _clientId)
         {
             this.inventorApplication = _inventorApplication;
             UIManager = _inventorApplication.UserInterfaceManager;
+            applicationEvents = inventorApplication.ApplicationEvents;
             this.clientId = _clientId;
+
+            theme = new InventorTheme(inventorApplication);
 
             CreateUiIcon();
             CreateButtonDefinition();
@@ -68,7 +73,7 @@ namespace InventorCode.AddinPack
 
         private void CreateUiIcon()
         {
-            icon = new InventorUiIcon(inventorApplication,
+            icon = new InventorUiIcon(theme,
                                    small: SmallIconImage,
                                    large: LargeIconImage,
                                    smallDark: SmallIconImageDark,
@@ -86,6 +91,7 @@ namespace InventorCode.AddinPack
             uiEvents = inventorApplication.UserInterfaceManager.UserInterfaceEvents;
             uiEvents.OnResetRibbonInterface += OnResetRibbonInterface_handler;
             commandButtonDefinition.OnExecute += customButtonDefinition_OnExecute;
+            applicationEvents.OnApplicationOptionChange += OnApplicationOptionChange_handler;
         }
 
         public void CreateRibbonButton(
@@ -129,10 +135,24 @@ namespace InventorCode.AddinPack
             commandButtonDefinition.OnExecute -= customButtonDefinition_OnExecute;
             commandButtonDefinition = null;
 
+            applicationEvents.OnApplicationOptionChange -= OnApplicationOptionChange_handler;
+            applicationEvents = null;
+
             uiEvents.OnResetRibbonInterface -= OnResetRibbonInterface_handler;
             uiEvents = null;
 
             inventorApplication = null;
+        }
+
+        private void OnApplicationOptionChange_handler(EventTimingEnum BeforeOrAfter, NameValueMap Context, out HandlingCodeEnum HandlingCode)
+        {
+            if (BeforeOrAfter == EventTimingEnum.kAfter)
+            {
+                icon.RefreshIcons();
+                commandButtonDefinition.LargeIcon = icon.Large;
+                commandButtonDefinition.StandardIcon = icon.Small;
+            }
+            HandlingCode = HandlingCodeEnum.kEventNotHandled;
         }
 
         private void OnResetRibbonInterface_handler(NameValueMap Context) => BuildUserInterface();

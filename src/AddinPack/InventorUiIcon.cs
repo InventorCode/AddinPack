@@ -1,10 +1,6 @@
-﻿using InventorCode.AddinPack;
-using stdole;
+﻿using stdole;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InventorCode.AddinPack
 {
@@ -15,25 +11,44 @@ namespace InventorCode.AddinPack
     /// </summary>
     public class InventorUiIcon
     {
-        private Inventor.Application _invApp;
+        private InventorTheme theme;
         private stdole.IPictureDisp small;
         private stdole.IPictureDisp large;
         private stdole.IPictureDisp smallDark;
         private stdole.IPictureDisp largeDark;
 
-        public InventorUiIcon(Inventor.Application invApp, object small, object large, object smallDark, object largeDark)
+        public InventorUiIcon(InventorTheme theme, object small, object large, object smallDark, object largeDark)
         {
-            _invApp = invApp;
+            this.theme = theme;
 
             this.small = ConvertImageFormat(small);
             this.large = ConvertImageFormat(large);
             this.smallDark = ConvertImageFormat(smallDark);
             this.largeDark = ConvertImageFormat(largeDark);
+
+            RefreshIcons();
+        }
+
+        public stdole.IPictureDisp Large { get; set; }
+        public stdole.IPictureDisp Small { get; set; }
+
+        public void RefreshIcons()
+        {
+            if (theme.IsDarkTheme)
+            {
+                Small = smallDark;
+                Large = largeDark;
+            }
+            else
+            {
+                Small = small;
+                Large = large;
+            }
         }
 
         IPictureDisp ConvertImageFormat(object image)
         {
-            switch(image)
+            switch (image)
             {
                 case System.Drawing.Icon icon:
                     return PictureDispConverter.ToIPictureDisp(icon);
@@ -47,41 +62,6 @@ namespace InventorCode.AddinPack
                 default:
                     throw new ArgumentException("A command button icon was in an invalid image format.");
             }
-        }
-
-        public stdole.IPictureDisp Small
-        {
-            get
-            {
-                if (IsDarkThemeActive(_invApp))
-                { return smallDark; }
-                else
-                { return small; }
-            }
-        }
-
-        public stdole.IPictureDisp Large
-        {
-            get
-            {
-                if (IsDarkThemeActive(_invApp))
-                { return largeDark; }
-                else
-                { return large; }
-            }
-        }
-
-        public static bool IsDarkThemeActive(Inventor.Application invApp)
-        {
-            //version earlier than 2021 do not include dark mode, so return false
-            if (invApp.SoftwareVersion.Major <= 23)
-                return false;
-            return ThemeNameContainsDark(invApp);
-        }
-
-        private static bool ThemeNameContainsDark(Inventor.Application invApp)
-        {
-            return invApp.ThemeManager.ActiveTheme.Name.IndexOf("DARK", StringComparison.OrdinalIgnoreCase) >= 0;
         }
     }
 }

@@ -37,6 +37,7 @@
       <EmbedInteropTypes>false</EmbedInteropTypes>
       <Private>false</Private>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="stdole">
       <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Inventor 2022\Bin\stdole.dll</HintPath>
       <Private>false</Private>
