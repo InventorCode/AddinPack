@@ -23,6 +23,12 @@
     <RepositoryUrl>https://github.com/InventorCode/AddinPack</RepositoryUrl>
     <PackageTags>Autodesk Inventor Addin</PackageTags>
   </PropertyGroup>
+<PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DefaultDocumentationFolder>..\..\docs\api\</DefaultDocumentationFolder>
+	  <DefaultDocumentationGeneratedAccessModifiers>Public,Protected</DefaultDocumentationGeneratedAccessModifiers>
+	  <DefaultDocumentationGeneratedPages>Namespaces,Types,Members</DefaultDocumentationGeneratedPages>
+  </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>../../artifacts/Debug</OutputPath>
@@ -31,6 +37,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>../../artifacts/Release</OutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DefaultDocumentation" Version="0.8.2" PrivateAssets="all" />
+  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Autodesk.Inventor.Interop">

@@ -1,68 +1,51 @@
+[api documentation](docs/api/InventorCode.AddinPack.md) | [contributions](docs/Contributions.md)
+
+---
+
 # AddinPack
 
-A simple collection of classes to simplify creating Autodesk Inventor addins.
+A simple collection of classes to simplify creating Autodesk Inventor addins. It provides simple ways to create and manage custom UI elements, such as Ribbon buttons. These UI elements are presented as `IUiTemplate` interfaces and are managed by a `UiTemplates` collection class. The `UiTemplates` and command UI elements are declared and used in the `StandardAddInServer` class; the entry-point for your Inventor addin.
 
-The thought for this is that you can structure your addin such that each command is defined separately, and AddinPack will handle the management of them. For example, the following would be a typical addin structure:
+You can find the [api documentation here](docs/api/InventorCode.AddinPack.md). Follow below for a quick start guide.
+
+# Quick-Start
+
+## Addin Structure
+
+You can structure your addin such that each user command is defined separately. It is generally recommended to keep each command in a seperate namespace. For example, the following would be a typical addin structure:
 
 - MyAddin Project
     - StandardAddInServer.cs
-    - namespace Tool1
+    - namespace ToolOne
         - CommandButton.cs
         - Form.cs
         - Form.Designer.cs
-    - namespace Tool2
+    - namespace ToolTwo
         - CommandButton.cs
         - Tool2Helpers.cs
 
+## Class Structure
 
-## UiTemplates
+```mermaid
+graph LR
+    A(StandardAddInServer) --> IUiTemplates
 
-This is a simple collection class to manage loading multiple user interface components into your add-in (e.g. ribbon command-buttons, combo-boxes, etc). It supports the following:
+    subgraph IUiTemplates
+        C(IUiTemplate)
+        D(IUiTemplate)
+    end
 
-- `List<IUiTemplate> Items` - collection of IUiTemplate objects to be managed from your StandardAddInServer class.
-- `Add()` - adds an IUiTemplate object to the Items collection.
-- `Activate()` - calls the Activate method on each IUiTemplate object in the Items collection.
-- `Deactivate()` - calls the Deactivate method on each IUiTemplate object in the Items collection.
-- `BuildUserInterface()` - calls the BuildUserInterface method on each IUiTemplate object in the Items collection.
+    C -.- H(ToolOne.CommandButton)
+    H --Execute--> M(User code in ToolOne)
 
-Let's look at a simple (truncated) StandardAddInServer example that uses the UiTemplates class to manage loading your command buttons and other ui elements:
-
-``` c#
-    public class StandardAddinServer : Inventor.ApplicationAddInServer
-    {
-        //initialize the UiTemplates collection - this will hold all the UiComponents we're going to have managed...
-        UiTemplates elements = new UiTemplates();
-
-        public void Activate(Inventor.Application InventorApplication, string clientId, bool firstTime = true)
-        {
-            _inventorApplication = InventorApplication;
-
-            //We'll add some command buttons to the UiTemplates collection here... you can dynamically load and unload these as needed...
-            elements.Add(new Tool1.CommandButton(_inventorApplication, clientId));
-            elements.Add(new Tool2.CommandButton(_inventorApplication, clientId));
-
-            elements.Activate();
-            if (firstTime)
-                elements.BuildUserInterface();
-        }
-
-        public void Deactivate()
-        {
-            elements.Deactivate();
-            _inventorApplication = null;
-        }
-
-        public void Execute()
-        {
-        }
-
-    //continue the rest of the StandardAddInServer class here, not shown for brevity
-    }
+    D -.- I(ToolTwo.CommandButton)
+    I --Execute--> N(User code in ToolTwo)
 ```
+
 ## IUiTemplate
 
 An IUiTemplate is a simple interface for all UiTemplate objects. For the most part you won't need to worry about this, other than knowing that
-- the IUiTemplate interface is used for all AddkinPack UI template elements (you can see it in the StandardAddInServer example above), and
+- the IUiTemplate interface is used for all AddinPack UI template elements (you can see it in the StandardAddInServer example), and
 - if you want to know how this all works under the hood.
 
 It exposes the following members:
@@ -153,3 +136,47 @@ namespace MyAddin.Tool1
 }
 ```
 
+## UiTemplates
+
+This is a simple collection class to manage loading multiple user interface components into your add-in (e.g. ribbon command-buttons, combo-boxes, etc). It supports the following:
+
+- `List<IUiTemplate> Items` - collection of IUiTemplate objects to be managed from your StandardAddInServer class.
+- `Add()` - adds an IUiTemplate object to the Items collection.
+- `Activate()` - calls the Activate method on each IUiTemplate object in the Items collection.
+- `Deactivate()` - calls the Deactivate method on each IUiTemplate object in the Items collection.
+- `BuildUserInterface()` - calls the BuildUserInterface method on each IUiTemplate object in the Items collection.
+
+Let's look at a simple (truncated) StandardAddInServer example that uses the UiTemplates class to manage loading your command buttons and other ui elements:
+
+``` c#
+    public class StandardAddinServer : Inventor.ApplicationAddInServer
+    {
+        //initialize the UiTemplates collection - this will hold all the UiComponents we're going to have managed...
+        UiTemplates elements = new UiTemplates();
+
+        public void Activate(Inventor.Application InventorApplication, string clientId, bool firstTime = true)
+        {
+            _inventorApplication = InventorApplication;
+
+            //We'll add some command buttons to the UiTemplates collection here... you can dynamically load and unload these as needed...
+            elements.Add(new Tool1.CommandButton(_inventorApplication, clientId));
+            elements.Add(new Tool2.CommandButton(_inventorApplication, clientId));
+
+            elements.Activate();
+            if (firstTime)
+                elements.BuildUserInterface();
+        }
+
+        public void Deactivate()
+        {
+            elements.Deactivate();
+            _inventorApplication = null;
+        }
+
+        public void Execute()
+        {
+        }
+
+    //continue the rest of the StandardAddInServer class here, not shown for brevity
+    }
+```
