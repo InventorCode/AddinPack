@@ -17,6 +17,14 @@ namespace InventorCode.AddinPack
         private stdole.IPictureDisp smallDark;
         private stdole.IPictureDisp largeDark;
 
+        /// <summary>
+        /// Creates a new InventorUiIcon object with user-provided images. Supports bitmaps and icons.
+        /// </summary>
+        /// <param name="theme">An InventorTheme object to use for the icon's handling of light/dark icon switching.</param>
+        /// <param name="small">The small icon image.</param>
+        /// <param name="large">The large icon image.</param>
+        /// <param name="smallDark">The small icon image for dark themes.</param>
+        /// <param name="largeDark">The large icon image for dark themes.</param>
         public InventorUiIcon(InventorTheme theme, object small, object large, object smallDark, object largeDark)
         {
             this.theme = theme;
@@ -29,9 +37,21 @@ namespace InventorCode.AddinPack
             RefreshIcons();
         }
 
+        /// <summary>
+        /// Returns the large image to match the current theme.
+        /// </summary>
+        /// <returns>Returns an IPictureDisp</returns>
         public stdole.IPictureDisp Large { get; set; }
+        
+        /// <summary>
+        /// Returns the small image to match the current theme.
+        /// </summary>
+        /// <returns>Returns an IPictureDisp</returns>
         public stdole.IPictureDisp Small { get; set; }
 
+        /// <summary>
+        /// Refreshes the icon images to match the current theme.
+        /// </summary>
         public void RefreshIcons()
         {
             if (theme.IsDarkTheme)
