@@ -12,7 +12,7 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 
 | Constructors | |
 | :--- | :--- |
-| [InventorTheme(Application)](InventorCode.AddinPack.InventorTheme.InventorTheme(Inventor.Application).md 'InventorCode.AddinPack.InventorTheme.InventorTheme(Inventor.Application)') | Creates a new InventorTheme object. |
+| [InventorTheme(Application)](InventorCode.AddinPack.InventorTheme.InventorTheme(Application).md 'InventorCode.AddinPack.InventorTheme.InventorTheme(Application)') | Creates a new InventorTheme object. |
 
 | Properties | |
 | :--- | :--- |

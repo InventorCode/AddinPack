@@ -5,7 +5,7 @@
 The classification of the command button; define as a Inventor.CommandTypesEnum. This must be overridden in the extending class.
 
 ```csharp
-protected abstract Inventor.CommandTypesEnum classification { get; set; }
+protected abstract CommandTypesEnum classification { get; set; }
 ```
 
 #### Property Value

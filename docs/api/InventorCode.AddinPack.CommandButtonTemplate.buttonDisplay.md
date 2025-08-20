@@ -5,7 +5,7 @@
 The button display style for the command. This must be overridden in the extending class.
 
 ```csharp
-protected abstract Inventor.ButtonDisplayEnum buttonDisplay { get; set; }
+protected abstract ButtonDisplayEnum buttonDisplay { get; set; }
 ```
 
 #### Property Value

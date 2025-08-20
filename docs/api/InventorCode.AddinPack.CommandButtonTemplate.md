@@ -16,7 +16,7 @@ Implements [IUiTemplate](InventorCode.AddinPack.IUiTemplate.md 'InventorCode.Add
 
 | Constructors | |
 | :--- | :--- |
-| [CommandButtonTemplate(Application, string)](InventorCode.AddinPack.CommandButtonTemplate.CommandButtonTemplate(Inventor.Application,string).md 'InventorCode.AddinPack.CommandButtonTemplate.CommandButtonTemplate(Inventor.Application, string)') | Command button template constructor. |
+| [CommandButtonTemplate(Application, string)](InventorCode.AddinPack.CommandButtonTemplate.CommandButtonTemplate(Application,string).md 'InventorCode.AddinPack.CommandButtonTemplate.CommandButtonTemplate(Application, string)') | Command button template constructor. |
 
 | Properties | |
 | :--- | :--- |
