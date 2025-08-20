@@ -1,1 +1,1 @@
-gitversion /updateassemblyinfo
+dotnet gitversion /updateprojectfiles

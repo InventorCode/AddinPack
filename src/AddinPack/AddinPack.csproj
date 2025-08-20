@@ -1,12 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-
   <PropertyGroup>
     <TargetFrameworks>net48;net8.0-windows</TargetFrameworks>
     <RootNamespace>AddinPack</RootNamespace>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <InformationalVersion>2.0.0-21+Branch.main.Sha.b96defd9103fd4dd3c195a7bc6fb6a06dad61e16</InformationalVersion>
   </PropertyGroup>
-
   <PropertyGroup>
     <AssemblyName>InventorCode.AddinPack</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -15,8 +16,8 @@
     <Product></Product>
     <Description>A simple collection of classes to simplify creating Autodesk Inventor addins.</Description>
     <Copyright>2022</Copyright>
-    <Version>1.0.0</Version>
-    <PackageVersion>1.0.0</PackageVersion>
+    <Version>2.0.0-21</Version>
+    <PackageVersion>2.0.0</PackageVersion>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageProjectUrl></PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -31,20 +32,16 @@
     <DefaultDocumentationGeneratedAccessModifiers>Public,Protected</DefaultDocumentationGeneratedAccessModifiers>
     <DefaultDocumentationGeneratedPages>Namespaces,Types,Members</DefaultDocumentationGeneratedPages>
   </PropertyGroup>
-	
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>../../artifacts/Debug</OutputPath>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>../../artifacts/Release</OutputPath>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="DefaultDocumentation" Version="0.8.2" PrivateAssets="all" />
     <PackageReference Include="stdole" Version="17.14.40260" />
   </ItemGroup>
-
   <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
     <Reference Include="Autodesk.Inventor.Interop">
       <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Inventor 2024\Bin\Public Assemblies\Autodesk.Inventor.Interop.dll</HintPath>
@@ -59,8 +56,6 @@
     </Reference>
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
-
-	
   <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
     <Reference Include="Autodesk.Inventor.Interop">
       <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Inventor 2025\Bin\Public Assemblies\Autodesk.Inventor.Interop.dll</HintPath>
@@ -68,7 +63,6 @@
       <Private>false</Private>
     </Reference>
   </ItemGroup>
-		
   <ItemGroup>
     <None Include="..\..\images\icon.png">
       <Pack>True</Pack>
