@@ -39,8 +39,8 @@
     <OutputPath>../../artifacts/Release</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DefaultDocumentation" Version="0.8.2" PrivateAssets="all" />
-    <PackageReference Include="stdole" Version="17.14.40260" />
+    <PackageReference Include="DefaultDocumentation" Version="1.2.0" PrivateAssets="all" />
+    <PackageReference Include="stdole" Version="7.0.3303" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
     <Reference Include="Autodesk.Inventor.Interop">
