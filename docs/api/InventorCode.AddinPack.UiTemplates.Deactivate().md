@@ -1,8 +1,8 @@
-### [InventorCode.AddinPack](InventorCode.AddinPack.md 'InventorCode.AddinPack').[UiTemplates](InventorCode.AddinPack.UiTemplates.md 'InventorCode.AddinPack.UiTemplates')
+### [InventorCode\.AddinPack](InventorCode.AddinPack.md 'InventorCode\.AddinPack').[UiTemplates](InventorCode.AddinPack.UiTemplates.md 'InventorCode\.AddinPack\.UiTemplates')
 
-## UiTemplates.Deactivate() Method
+## UiTemplates\.Deactivate\(\) Method
 
-Deactivates all user interface elements in the IUiTemplate collection.
+Deactivates all user interface elements in the IUiTemplate collection\.
 
 ```csharp
 public void Deactivate();

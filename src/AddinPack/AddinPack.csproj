@@ -4,9 +4,9 @@
     <RootNamespace>AddinPack</RootNamespace>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <FileVersion>2.0.0.0</FileVersion>
-    <InformationalVersion>2.0.0-21+Branch.main.Sha.b96defd9103fd4dd3c195a7bc6fb6a06dad61e16</InformationalVersion>
+    <AssemblyVersion>2.0.1.0</AssemblyVersion>
+    <FileVersion>2.0.1.0</FileVersion>
+    <InformationalVersion>2.0.1-23+Branch.main.Sha.9ab7e9325dec1922ebc9bcbd3f36db8b7a12a89f</InformationalVersion>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyName>InventorCode.AddinPack</AssemblyName>
@@ -16,8 +16,8 @@
     <Product></Product>
     <Description>A simple collection of classes to simplify creating Autodesk Inventor addins.</Description>
     <Copyright>2022</Copyright>
-    <Version>2.0.0-21</Version>
-    <PackageVersion>2.0.0</PackageVersion>
+    <Version>2.0.1-23</Version>
+    <PackageVersion>2.0.1</PackageVersion>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageProjectUrl></PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>

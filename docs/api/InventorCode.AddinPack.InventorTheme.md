@@ -1,19 +1,19 @@
-### [InventorCode.AddinPack](InventorCode.AddinPack.md 'InventorCode.AddinPack')
+### [InventorCode\.AddinPack](InventorCode.AddinPack.md 'InventorCode\.AddinPack')
 
 ## InventorTheme Class
 
-Provides simple wrapper to detect if Inventor's theme is light or dark.
+Provides simple wrapper to detect if Inventor's theme is light or dark\.
 
 ```csharp
 public class InventorTheme
 ```
 
-Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; InventorTheme
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') &#129106; InventorTheme
 
 | Constructors | |
 | :--- | :--- |
-| [InventorTheme(Application)](InventorCode.AddinPack.InventorTheme.InventorTheme(Application).md 'InventorCode.AddinPack.InventorTheme.InventorTheme(Application)') | Creates a new InventorTheme object. |
+| [InventorTheme\(Application\)](InventorCode.AddinPack.InventorTheme.InventorTheme(Inventor.Application).md 'InventorCode\.AddinPack\.InventorTheme\.InventorTheme\(Inventor\.Application\)') | Creates a new InventorTheme object\. |
 
 | Properties | |
 | :--- | :--- |
-| [IsDarkTheme](InventorCode.AddinPack.InventorTheme.IsDarkTheme.md 'InventorCode.AddinPack.InventorTheme.IsDarkTheme') | Returns true if the current theme is dark. |
+| [IsDarkTheme](InventorCode.AddinPack.InventorTheme.IsDarkTheme.md 'InventorCode\.AddinPack\.InventorTheme\.IsDarkTheme') | Returns true if the current theme is dark\. |

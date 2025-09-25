@@ -1,8 +1,8 @@
-### [InventorCode.AddinPack](InventorCode.AddinPack.md 'InventorCode.AddinPack').[CommandButtonTemplate](InventorCode.AddinPack.CommandButtonTemplate.md 'InventorCode.AddinPack.CommandButtonTemplate')
+### [InventorCode\.AddinPack](InventorCode.AddinPack.md 'InventorCode\.AddinPack').[CommandButtonTemplate](InventorCode.AddinPack.CommandButtonTemplate.md 'InventorCode\.AddinPack\.CommandButtonTemplate')
 
-## CommandButtonTemplate.CreateRibbonButton(string, string, string, string, string) Method
+## CommandButtonTemplate\.CreateRibbonButton\(string, string, string, string, string\) Method
 
-This method inserts the command button into the Inventor ribbon UI. This is typically called from the CommandBUttonTemplate.BuildUserInterface() method.
+This method inserts the command button into the Inventor ribbon UI\. This is typically called from the CommandBUttonTemplate\.BuildUserInterface\(\) method\.
 
 ```csharp
 public void CreateRibbonButton(string ribbon, string tabName, string tabId, string panelName, string panelId);
@@ -11,30 +11,30 @@ public void CreateRibbonButton(string ribbon, string tabName, string tabId, stri
 
 <a name='InventorCode.AddinPack.CommandButtonTemplate.CreateRibbonButton(string,string,string,string,string).ribbon'></a>
 
-`ribbon` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+`ribbon` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
 The Inventor ribbon name
 
 <a name='InventorCode.AddinPack.CommandButtonTemplate.CreateRibbonButton(string,string,string,string,string).tabName'></a>
 
-`tabName` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+`tabName` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
 The name of the tab to add the button to
 
 <a name='InventorCode.AddinPack.CommandButtonTemplate.CreateRibbonButton(string,string,string,string,string).tabId'></a>
 
-`tabId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+`tabId` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
 The internal name of the tab to add the button to
 
 <a name='InventorCode.AddinPack.CommandButtonTemplate.CreateRibbonButton(string,string,string,string,string).panelName'></a>
 
-`panelName` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+`panelName` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
 The name of the panel to add the button to
 
 <a name='InventorCode.AddinPack.CommandButtonTemplate.CreateRibbonButton(string,string,string,string,string).panelId'></a>
 
-`panelId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+`panelId` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
 The internal name of the panel to add the button to
